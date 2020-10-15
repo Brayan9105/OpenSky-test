@@ -1,0 +1,25 @@
+<%= link_to 'Back', authors_path, class: 'btn btn-outline-secondary mb-4' %>
+
+<h1>
+  <%= @author.name %>
+</h1>
+
+<div class="text-muted">Author | <%= link_to 'Edit', edit_author_path(@author), class: 'btn btn-sm btn-outline-primary' %></div>
+
+<hr>
+
+<h4>Posts: <%= @posts.count %></h4>
+
+<% if @posts.size == 0 %>
+  This author dont have posts
+<% end %>
+
+<% @posts.each do |post| %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title"><%= post.title %></h5>
+      <hr>
+      <p class="card-text"><%= post.content %></p>
+    </div>
+  </div>
+<% end %>
