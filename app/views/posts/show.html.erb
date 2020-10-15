@@ -1,19 +1,15 @@
-<p id="notice"><%= notice %></p>
+<%= link_to 'Back', posts_path, class: 'btn btn-outline-secondary mb-4' %>
 
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @post.title %>
-</p>
+</h1>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+<div class="text-muted"><%= @post.author.name %> | <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-sm btn-outline-primary' %></div>
 
-<p>
-  <strong>Author:</strong>
-  <%= @post.author_id %>
-</p>
+<hr>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div class="row">
+  <div class="col">
+    <p><%= @post.content %></p>
+  </div>
+</div>
