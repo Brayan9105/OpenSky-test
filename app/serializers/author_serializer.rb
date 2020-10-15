@@ -1,4 +1,4 @@
 class AuthorSerializer < ActiveModel::Serializer
-  attributes :id, :name, :age
-  has_one :country
+  attributes :name, :age
+  belongs_to :country
 end
