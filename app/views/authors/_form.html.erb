@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :age %>
-    <%= form.number_field :age %>
+    <%= form.number_field :age, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :country_id %>
-    <%= form.text_field :country_id %>
+    <%= form.collection_select :country_id, Country.all(), :id, :name, { :prompt => 'Select country' }, {class: 'form-control'} %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group mt-3">
+    <%= form.submit class: 'btn btn-success' %>
   </div>
 <% end %>
