@@ -1,6 +1,15 @@
-<h1>Editing Author</h1>
+<%= link_to 'Back', authors_path, class: 'btn btn-outline-secondary mb-4' %>
 
-<%= render 'form', author: @author %>
+<div class="row">
+  <div class="col"></div>
 
-<%= link_to 'Show', @author %> |
-<%= link_to 'Back', authors_path %>
+  <div class="card p-2">
+    <div class="col text-center">
+      <h1>Editing Author</h1>
+      <br/>
+      <%= render 'form', author: @author %>
+    </div>
+  </div>
+
+  <div class="col"></div>
+</div>
