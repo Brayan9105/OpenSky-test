@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :authors
       resources :posts
+      
+      get 'posts/:id/author', to: 'posts#authorPost'
     end
   end
 end

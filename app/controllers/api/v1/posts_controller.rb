@@ -41,6 +41,12 @@ module Api
         end
       end
 
+      def authorPost
+        @author = Author.find(params[:id])
+        @posts = @author.posts
+        render json: @posts
+      end
+
       private
 
       def set_post
