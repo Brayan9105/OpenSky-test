@@ -1,2 +1,55 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Home</h1>
+
+<div class="row">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        Last 5 authors created
+      </div> 
+      <table class="table">
+        <thead>
+          <th>Name</th>
+          <th>Country</th>
+        </thead>
+        <tbody>
+          <% @authors.each do |author| %>
+            <tr>
+              <td>
+                <%= link_to author.name, author_path(author) %>
+              </td>
+              <td>
+                <%= author.country.name %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        Last 5 post created
+      </div> 
+      <table class="table">
+        <thead>
+          <th>Title</th>
+          <th>Author</th>
+        </thead>
+        <tbody>
+          <% @posts.each do |post| %>
+            <tr>
+              <td>
+                <%= link_to post.title, post_path(post) %>
+              </td>
+              <td>
+                <%= link_to post.author.name, author_path(post.author) %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
