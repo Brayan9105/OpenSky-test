@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_15_210235) do
+ActiveRecord::Schema.define(version: 2020_10_15_210603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.bigint "country_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_authors_on_country_id"
+  end
 
   create_table "countries", force: :cascade do |t|
     t.string "name"
@@ -21,4 +30,5 @@ ActiveRecord::Schema.define(version: 2020_10_15_210235) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "authors", "countries"
 end
