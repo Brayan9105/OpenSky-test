@@ -19,7 +19,7 @@ class AuthorsController < ApplicationController
     @author = Author.new(author_params)
 
     if @author.save
-      AppLog.save_log params[:controller], params[:action], @author.id
+      Applog.save_log params[:controller], params[:action], @author.id
       flash[:notice] =  'Author was successfully created.'
       redirect_to @author
     else
@@ -30,7 +30,7 @@ class AuthorsController < ApplicationController
 
   def update
     if @author.update(author_params)
-      AppLog.save_log params[:controller], params[:action], @author.id
+      Applog.save_log params[:controller], params[:action], @author.id
       flash[:notice] = 'Author was successfully updated.' 
       redirect_to @author
     else
@@ -41,7 +41,7 @@ class AuthorsController < ApplicationController
 
   def destroy
     if  @author.destroy
-      AppLog.save_log params[:controller], params[:action], @author.id
+      Applog.save_log params[:controller], params[:action], @author.id
       flash[:notice] = 'Authors was deleted and his posts'
       redirect_to authors_path
     else
