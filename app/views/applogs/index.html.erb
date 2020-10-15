@@ -1,0 +1,33 @@
+<div class="card px-3 py-3">
+  <div class="row">
+    <div class="col-10">
+      <h1>Logs</h1>
+    </div>
+  </div>
+
+<table class="table">
+  <tr>
+    <thead>
+      <th>Controller</th>
+      <th>Action</th>
+      <th>Resource Id</th>
+      <th>Date</th>
+    </thead>
+  </tr>
+  <tbody>
+    <% @logs.each do |log| %>
+    <% color = case log.action %>
+      <% when 'create' then 'success' %>
+      <% when 'update' then 'primary' %>
+      <% when 'destroy' then 'danger' %>
+    <% end %>
+      <tr class="bg-<%= color %>">
+        <td><%= log.controller %></td>
+        <td><%= log.action %></td>
+        <td><%= log.object_id %></td>
+        <td><%= log.created_at.strftime("%r %m/%d/%y") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
