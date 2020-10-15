@@ -1,19 +1,37 @@
-<p id="notice"><%= notice %></p>
+<%= link_to 'Back', authors_path, class: 'btn btn-outline-secondary mb-4' %>
 
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @author.name %>
-</p>
+</h1>
 
-<p>
-  <strong>Age:</strong>
-  <%= @author.age %>
-</p>
+<div class="text-muted">Author | <%= link_to 'Edit', edit_author_path(@author), class: 'btn btn-sm btn-outline-primary' %></div>
 
-<p>
-  <strong>Country:</strong>
-  <%= @author.country_id %>
-</p>
+<hr>
 
-<%= link_to 'Edit', edit_author_path(@author) %> |
-<%= link_to 'Back', authors_path %>
+<div class="row">
+  <div class="col-4 text-center">
+    <h5>Age</h5>
+  </div>
+
+  <div class="col-4 text-center">
+    <h5>Country</h5>
+  </div>
+
+  <div class="col-4 text-center">
+    <h5><%= link_to '# Posts', authorPost_path(@author) %></h5>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4 text-center">
+    <p><%= @author.age %> Years old</p>
+  </div>
+
+  <div class="col-4 text-center">
+    <p>From <%= @author.country.name %></p>
+  </div>
+
+  <div class="col-4 text-center">
+    <p><%= @author.posts.count %></p>
+  </div>
+</div>
