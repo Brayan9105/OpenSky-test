@@ -1,5 +1,6 @@
 class Author < ApplicationRecord
   belongs_to :country
+  has_many :posts
 
   validates :name, :age, presence: true
 
