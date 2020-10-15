@@ -1,31 +1,40 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Authors</h1>
+<div class="card px-3 py-3">
+  <div class="row">
+    <div class="col-10">
+      <h1>Authors</h1>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Country</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="col-2">
+      <%= link_to 'New Author', new_author_path, class: 'btn btn-success' %>
+    </div>
+  </div>
 
-  <tbody>
-    <% @authors.each do |author| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= author.name %></td>
-        <td><%= author.age %></td>
-        <td><%= author.country_id %></td>
-        <td><%= link_to 'Show', author %></td>
-        <td><%= link_to 'Edit', edit_author_path(author) %></td>
-        <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Country</th>
+        <th># Posts</th>
+        <th colspan="3">Options</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Author', new_author_path %>
+    <tbody>
+      <% @authors.each do |author| %>
+        <tr>
+          <td><%= link_to author.name, author_path(author) %></td>
+          <td><%= author.age %></td>
+          <td><%= author.country.name %></td>
+          <td><%= author.posts.count %></td>
+          <td>
+            <%= link_to 'Show', author, class: 'btn btn-info' %>
+            <%= link_to 'Edit', edit_author_path(author), class: 'btn btn-primary' %>
+            <%= link_to 'Delete', author, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
