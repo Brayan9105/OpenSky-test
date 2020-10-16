@@ -27,7 +27,7 @@
           <td><%= link_to author.name, author_path(author) %></td>
           <td><%= author.age %></td>
           <td><%= author.country.name %></td>
-          <td><%= author.posts.count %></td>
+          <td><%= link_to pluralize(author.posts.count,'Post'), authorPost_path(author) %></td>
           <td>
             <%= link_to 'Show', author, class: 'btn btn-info' %>
             <%= link_to 'Edit', edit_author_path(author), class: 'btn btn-primary' %>
